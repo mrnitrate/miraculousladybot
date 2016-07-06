@@ -6,18 +6,7 @@ import sys
 from settings import client, conn, db, blogName
 
 #Tags
-tags = ["miraculous ladybug fanfiction", 
-    "miraculous ladybug fanfic", 
-    "ml fanfiction", 
-    "ml fanfic", 
-    "ladybug fanfiction", 
-    "ladybug fanfic", 
-    "miraculous fanfiction", 
-    "miraculous fanfic", 
-    "adrinette", 
-    "ladynoir", 
-    "ladrien",
-    "marichat"]
+tags = ["Social justice","Privilege","Feminism","MRA","Misandry","Misogyny","Genderfluid","Genderqueer","Queerplatonic","Demisexual","Otherkin","Multiplicity","Plurality","Headmates","White people","Ableism","Fatphobia"]
 
 #Set the mode. Two options: sync and run
 if len(sys.argv) > 1:
@@ -54,10 +43,10 @@ def unique(post):
     return len(results) == 0
 
 def getInfo(post, tag):
-    postID = post["id"]  
+    postID = post["id"]
 
-    blog = post["blog_name"]                
-    
+    blog = post["blog_name"]
+
     if post["type"] == "text":
         if len(post["trail"]) > 0:
             content = sanitize(post["trail"][0]["content"])
@@ -65,7 +54,7 @@ def getInfo(post, tag):
         if len(post["text"]) > 0:
             content = sanitize(post["text"])
 
-    timestamp = post["timestamp"]  
+    timestamp = post["timestamp"]
     try:
         return (postID, blog, content, tag, timestamp)
     except UnboundLocalError:
@@ -84,6 +73,7 @@ try:
         quit = False
         while not quit:
             posts = client.tagged(tag, limit=20, before=earliest)
+
             try:
                 earliest = min([ post["timestamp"] for post in posts ])
             except ValueError:

@@ -2,15 +2,15 @@ import pytumblr
 import psycopg2
 
 client = pytumblr.TumblrRestClient( #https://api.tumblr.com/console
-    '<EBA7cZNiWUKwuw7waQ12rf2YBUwmlHWh45VwgGhdjVXTwpWdJH>',
-    '<PIFMt7nyx3bHoQY8ixbqEgrnx4orIfqNyhy5kWLRgbWrYg0iNt>',
-    '<OC6bmFeYDHj61iqYZ0ZDWcFLI5EjCWbiICzTjEegBDoRh3UqaY>',
-    '<LM27nLuW2BqiHBBgFSeznJ10koxaMoon1uYi1TI0KATdrUJMOD>',
+	'<consumer_key>',
+    '<consumer_secret>',
+    '<oauth_token>',
+    '<oauth_secret>',
 )
 
-conn = psycopg2.connect("dbname=fanfictions user=postgres")
+conn = psycopg2.connect("dbname=sjwbot user=postgres")
 
-blogName = "miraculousladybot"
+blogName = "mrnitrate"
 
 
 #Connect to database
